@@ -112,12 +112,19 @@ I deployed advanced monitoring architecture to achieve deeper endpoint visibilit
 
 ![Sysmon Telemetry Monitor Active](06_Phase3_Sysmon_Active.png)
 
-### 3. Simulated an Advanced Cyberattack
-With structural guardrails in place, I executed a controlled hostile simulation. Operating out of a local command console, I initiated an advanced process search command (`where.exe`) mapping to MITRE ATT&CK File/Directory Discovery techniques, mimicking an adversary script dropped natively onto the endpoint device to parse directory assets.
+### 3. Attack Simulation #1: Hostile Token & Cookie Extraction
+With structural guardrails in place, I executed a controlled hostile simulation targeting active identities. Operating out of an administrative PowerShell console, I simulated an advanced credential access threat targeting primary refresh tokens (PRTs) and browser data cookies (`tokenbrokercookies.exe`). This mimics an adversary attempting to bypass cloud identity boundaries by hijacking active session states directly from a compromised corporate endpoint.
 
 ![Simulated Exploit Execution](08_Phase4_Attack_Executed.png)
 
-### 4. Forensic Investigation & Threat Hunting
-To wrap up the security lifecycle, I shifted to a blue-team hunting role. I combed through the internal Event Viewer architecture using Sysmon logs to discover and isolate the exploit path. The deep system parsing engine successfully captured the exact execution sequence under Event ID 1, tracking the `where.exe` process mapping explicitly back to user context telemetry.
+### 4. Forensic Investigation & Threat Hunting for Token Theft
+To evaluate our blue-team defense capabilities, I combed through the internal Event Viewer telemetry to isolate the token-theft exploit footprint. The deep system parsing engine successfully flagged and tracked the execution lifecycle, verifying full analytical traceability for threat response teams.
 
-![Forensic Event Investigation Capture](16_Forensic_Threat_Hunting_Log.png)
+![Forensic Event Investigation Capture](09_Phase4_Threat_Hunted.png)
+
+### 5. Attack Simulation #2 & Real-Time Hunt: MITRE T1083 Discovery
+To demonstrate a comprehensive attack lifecycle, I executed a secondary discovery simulation. In the black Command Prompt window, I ran an advanced process search command (`where.exe /r`) targeting the local file structure to mimic an adversary enumerating critical local files. 
+
+Concurrently, I validated the real-time vigilance of our monitoring system. As documented below, Sysmon immediately flagged the activity under Event ID 1 (Process Create), cleanly mapping the execution string back to the user context and explicitly matching it against MITRE ATT&CK Technique T1083 (File and Directory Discovery).
+
+![Sysmon Real-Time Hunt: Discovery Log Verification](16_Forensic_Threat_Hunting_Log.png)
