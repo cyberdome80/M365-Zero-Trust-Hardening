@@ -65,7 +65,7 @@ I deployed two distinct live Conditional Access rules to evaluate access risk dy
 *   **`CA-Block-High-Risk-Regions`:** Instantly cuts off and blocks any connection hitting our boundary from our geographic blacklist.
 *   **`CA-Enforce-Staff-MFA`:** Intercepts standard users and forces an immediate Multi-Factor Authentication prompt to their phone whenever they connect outside the office.
 
-![Geographic Block Gate Active](13_Live_Geographic_Block_Gate.png)
+![Geographic Block Gate Access Active](13_Live_Geographic_Block_Gate.png)
 ![MFA Challenge Gate Active](14_Live_MFA_Challenge_Gate.png)
 
 ### 5. Verified Live Production Sign-In Logs
@@ -113,11 +113,11 @@ I deployed advanced monitoring architecture to achieve deeper endpoint visibilit
 ![Sysmon Telemetry Monitor Active](06_Phase3_Sysmon_Active.png)
 
 ### 3. Simulated an Advanced Cyberattack
-With structural guardrails in place, I executed a controlled hostile simulation. Operating out of a local command console, I initiated an advanced token-theft threat mechanism (`where.exe`) mimicking an adversary script dropped natively onto the endpoint device to hijack access and punch holes in our perimeter security boundaries.
+With structural guardrails in place, I executed a controlled hostile simulation. Operating out of a local command console, I initiated an advanced process search command (`where.exe`) mapping to MITRE ATT&CK File/Directory Discovery techniques, mimicking an adversary script dropped natively onto the endpoint device to parse directory assets.
 
 ![Simulated Exploit Execution](08_Phase4_Attack_Executed.png)
 
 ### 4. Forensic Investigation & Threat Hunting
-To wrap up the security lifecycle, I shifted to a blue-team hunting role. I combed through internal telemetry logs to discover and isolate the exploit path. The deep system parsing engine successfully captured the exact malicious execution sequence, documenting complete event tracking details for instant remediation.
+To wrap up the security lifecycle, I shifted to a blue-team hunting role. I combed through the internal Event Viewer architecture using Sysmon logs to discover and isolate the exploit path. The deep system parsing engine successfully captured the exact execution sequence under Event ID 1, tracking the `where.exe` process mapping explicitly back to user context telemetry.
 
-![Forensic Event Investigation Capture](09_Phase4_Threat_Hunted.png)
+![Forensic Event Investigation Capture](16_Forensic_Threat_Hunting_Log.png)
