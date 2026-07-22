@@ -1,7 +1,7 @@
 # Enterprise Cloud Hardening: Implementing a Zero Trust Framework in Microsoft 365
 
 ## Introduction
-In the modern corporate world, the traditional way of protecting a network—building a strong perimeter wall around an office—no longer works. Employees work from anywhere, using cloud applications and mobile devices. If a cybercriminal steals a single employee password or compromises a laptop, they can bypass traditional defenses entirely and gain access to sensitive corporate data.
+In the modern corporate world, the traditional way of protecting a network building a strong perimeter wall around an office no longer works. Employees work from anywhere, using cloud applications and mobile devices. If a cybercriminal steals a single employee password or compromises a laptop, they can bypass traditional defenses entirely and gain access to sensitive corporate data.
 
 To solve this problem, I built an end-to-end security framework inside a live corporate cloud environment using the **Zero Trust** strategy: *"Never Trust, Always Verify."* Instead of assuming a user is safe just because they typed a correct password, this system acts like a strict security guard at every single step. It constantly checks who the user is, where they are connecting from, and whether their computer is secure before letting them look at a single file. 
 
