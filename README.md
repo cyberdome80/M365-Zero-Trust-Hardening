@@ -32,11 +32,11 @@ graph TD
 ---
 
 ## Key Skills Demonstrated
-* **Identity Governance:** Directory provisioning, structural group containment, and least-privilege administrative boundary management.
-* **Cloud Security Architecture:** Conditional Access Policy engineering, geographical fencing (Named Locations), and global tenant hardening.
-* **Privileged Identity Management (PIM):** Eliminating 24/7 permanent administrative exposure via Just-In-Time role requests.
-* **Endpoint Detection & Telemetry:** Establishing hardware trust baselines via domain registration and collecting kernel-level log events.
-* **Forensic Analysis & Threat Hunting:** Investigating system process telemetry to track down and isolate sophisticated attack vectors.
+*   **Identity Governance:** Directory provisioning, structural group containment, and least-privilege administrative boundary management.
+*   **Cloud Security Architecture:** Conditional Access Policy engineering, geographical fencing (Named Locations), and global tenant hardening.
+*   **Privileged Identity Management (PIM):** Eliminating 24/7 permanent administrative exposure via Just-In-Time role requests.
+*   **Endpoint Detection & Telemetry:** Establishing hardware trust baselines via domain registration and collecting kernel-level log events.
+*   **Forensic Analysis & Threat Hunting:** Investigating system process telemetry to track down and isolate sophisticated attack vectors.
 
 ---
 
@@ -49,9 +49,9 @@ I initialized a custom corporate tenant network container (`Cyberdome80`) and ac
 
 ### 2. Built Directory Segmentation Boundaries
 I established explicit user containers to partition structural permissions cleanly before targeting them with automated rules:
-* **`SG-All-Staff`:** Holds standard personnel profiles. 
-* **`SG-Untrusted-Regions`:** Isolate profiles operating within high-risk geographic regions.
-* *Note: Administrative roles are explicitly set to "No" across these groups to block potential permission-leaking vulnerabilities.*
+*   **`SG-All-Staff`:** Holds standard personnel profiles. 
+*   **`SG-Untrusted-Regions`:** Isolate profiles operating within high-risk geographic regions.
+*   *Note: Administrative roles are explicitly set to "No" across these groups to block potential permission-leaking vulnerabilities.*
 
 ![Directory Security Groups Inventory](11_Practical_Security_Groups.png)
 
@@ -62,8 +62,8 @@ I compiled a custom network blocklist policy (**`High-Risk-Regions`**) within ou
 
 ### 4. Configured Automated Gate Enforcement
 I deployed two distinct live Conditional Access rules to evaluate access risk dynamically:
-* **`CA-Block-High-Risk-Regions`:** Instantly cuts off and blocks any connection hitting our boundary from our geographic blacklist.
-* **`CA-Enforce-Staff-MFA`:** Intercepts standard users and forces an immediate Multi-Factor Authentication prompt to their phone whenever they connect outside the office.
+*   **`CA-Block-High-Risk-Regions`:** Instantly cuts off and blocks any connection hitting our boundary from our geographic blacklist.
+*   **`CA-Enforce-Staff-MFA`:** Intercepts standard users and forces an immediate Multi-Factor Authentication prompt to their phone whenever they connect outside the office.
 
 ![Geographic Block Gate Active](13_Live_Geographic_Block_Gate.png)
 ![MFA Challenge Gate Active](14_Live_MFA_Challenge_Gate.png)
@@ -107,5 +107,17 @@ I physically linked my local Windows 10 Pro computer to our online cloud network
 
 ![Microsoft Entra ID Device Join Proof](15b_Device_Cloud_Connection.png)
 
-### 2. Deployed Kernel Monitoring Telemetry & Simulated an Advanced Cyberattack
-I installed a tracking monitor (**Sysmon**) inside the computer's core system and then executed a simulated cyberattack command (`where.exe`) in the black Command Prompt window to mimic an active hacker dropping a malicious script onto a company laptop to bypass our cloud perimeter.
+### 2. Deployed Kernel Monitoring Telemetry
+I deployed advanced monitoring architecture to achieve deeper endpoint visibility. I installed System Monitor (**Sysmon**) into the operating system's root subsystem to continuously track internal events and log crucial kernel-level activities.
+
+![Sysmon Telemetry Monitor Active](06_Phase3_Sysmon_Active.png)
+
+### 3. Simulated an Advanced Cyberattack
+With structural guardrails in place, I executed a controlled hostile simulation. Operating out of a local command console, I initiated an advanced token-theft threat mechanism (`where.exe`) mimicking an adversary script dropped natively onto the endpoint device to hijack access and punch holes in our perimeter security boundaries.
+
+![Simulated Exploit Execution](08_Phase4_Attack_Executed.png)
+
+### 4. Forensic Investigation & Threat Hunting
+To wrap up the security lifecycle, I shifted to a blue-team hunting role. I combed through internal telemetry logs to discover and isolate the exploit path. The deep system parsing engine successfully captured the exact malicious execution sequence, documenting complete event tracking details for instant remediation.
+
+![Forensic Event Investigation Capture](09_Phase4_Threat_Hunted.png)
